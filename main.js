@@ -1,5 +1,21 @@
 $(document).ready(function() {
+    
     $("#cerca-button").click(function(){
+        var input_utente = $("#ricerca-utente").val();
+        if (input_utente.length != 0){
+            cerca_chiama_cicla_appendi();
+        }
+    })
+    $("#ricerca-utente").keypress(function(event){
+        // stesso procedimento ma per il tasto invio,l evento è collegato appunto al tasto 13
+        if(event.which == 13){
+            var input_utente = $("#ricerca-utente").val();
+            if (input_utente.length != 0){
+                cerca_chiama_cicla_appendi();
+            }
+        }
+    })
+    function cerca_chiama_cicla_appendi(){
         var input_utente = $("#ricerca-utente").val();
         var api_url_base = "https://api.themoviedb.org/3/";
         $("main ul").html("");
@@ -31,7 +47,6 @@ $(document).ready(function() {
                 alert("errore");
             }
         });
-    })
-
+    }
 
 });
