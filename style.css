@@ -1,0 +1,17 @@
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header {
+    height: 70px;
+    background-color: rgb(46, 58, 70);
+    color:white;
+    text-align: center;
+    padding: 20px;
+}
+main {
+    min-height: calc(100vh - 70px);
+    background-color: #1E2D3B;
+    color: white;
+}
