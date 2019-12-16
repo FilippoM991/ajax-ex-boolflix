@@ -1,5 +1,10 @@
 $(document).ready(function() {
-    
+    // 1- recupero il codice html del template
+    var template_html = $('#informazioni_film_template').html();
+    // 2- do in pasto a handlebars il codice html
+    // N.B.: la funzione "Handlebars.compile" restituisce una *funzione* da utilizzare per andare a usare il template
+    var template_function = Handlebars.compile(template_html);
+
     $("#cerca-button").click(function(){
         var input_utente = $("#ricerca-utente").val();
         if (input_utente.length != 0){
@@ -18,7 +23,7 @@ $(document).ready(function() {
     function cerca_chiama_cicla_appendi(){
         var input_utente = $("#ricerca-utente").val();
         var api_url_base = "https://api.themoviedb.org/3/";
-        $("main ul").html("");
+        $("main").html("");
         $.ajax({
             "url": api_url_base + "search/movie",
             "data":{
@@ -28,19 +33,25 @@ $(document).ready(function() {
             },
             "method": "get",
             "success": function(data) {
-                console.log(data);
                 var film = data.results;
                 for (var i = 0; i < film.length; i++) {
                     var film_corrente = film[i];
                     var titolo = film_corrente.title;
-                    $("main ul").append("<li>" + "Titolo: " + titolo + "</li>");
                     var titolo_originale = film_corrente.original_title;
-                    $("main ul").append("<li>" + "Titolo originale: " + titolo_originale + "</li>");
                     var lingua = film_corrente.original_language;
-                    $("main ul").append("<li>" + "Lingua: "  + lingua + "</li>");
                     var voto = film_corrente.vote_average;
-                    $("main ul").append("<li>" + "Voto: " + voto + "</li>");
-                    $("main ul").append("<br>");
+                    var voto_stelle = Math.round(voto /2);
+                    var informazioni = {
+                        titolo: titolo,
+                        originale: titolo_originale,
+                        lingua: lingua,
+                        voto: voto_stelle
+                    };
+                    // creo il template
+                    var html = template_function(informazioni);
+                    // lo appendo al contenitore
+                    $("main").append(html);
+
                 };
             },
             "error": function(){
