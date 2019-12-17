@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title></title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
         <script src="main.js" charset="utf-8"></script>
@@ -14,16 +15,16 @@
             <button id="cerca-button" type="button" name="button">Cerca</button>
         </header>
         <main>
-
         </main>
         <script id="informazioni_film_template" type="text/x-handlebars-template">
             <ul>
                 <li>Titolo: {{titolo}} </li>
                 <li>Titolo originale: {{originale}}</li>
-                <li>Lingua: {{lingua}}</li>
-                <li>Voto: {{voto}}</li>
+                <li>Lingua: {{{lingua}}} </li>
+                <li>Voto: {{{voto}}}</li>
                 <br>
             </ul>
         </script>
+
     </body>
 </html>
