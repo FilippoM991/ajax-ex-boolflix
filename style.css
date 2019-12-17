@@ -15,3 +15,17 @@ main {
     background-color: #1E2D3B;
     color: white;
 }
+i {
+    color: white;
+    font-size: 14px;
+}
+li {
+    position: relative;
+}
+li img {
+    position: absolute;
+    margin-left: 5px;
+    top: -1px;
+    /* width: 28px;
+    height: 22px; */
+}
