@@ -58,11 +58,13 @@ main {
     flex-basis: 240px;
     line-height: 25px;
     position: relative;
-    overflow-y: auto;
-    overflow-x: hidden;
+
 }
 .card:hover {
     cursor: pointer;
+}
+.card:hover .copertina {
+    opacity: 0;
 }
 .card ul {
     list-style: none;
@@ -89,6 +91,10 @@ main {
     top:0;
     left: 0;
 }
-.copertina:hover {
-    opacity: 0;
+#overview {
+    overflow-y: auto;
+    height: 145px
 }
+/* .copertina:hover {
+    opacity: 0;
+} */
