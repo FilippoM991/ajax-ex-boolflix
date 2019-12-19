@@ -46,15 +46,21 @@ main {
 }
 .container {
     width: 1170px;
-    display: flex;
-    flex-wrap: wrap;
+
     margin: 0 auto;
+}
+.container h2 {
+    margin:40px 0;
 }
 #sezione-film, #sezione-serie {
     display:none;
 }
 #sezione-film.visibile, #sezione-serie.visibile {
     display:block;
+}
+#risultati-film, #risultati-serie {
+    display: flex;
+    flex-wrap: wrap;
 }
 .card {
     padding: 20px;

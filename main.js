@@ -31,7 +31,7 @@ $(document).ready(function() {
         // resetto l input
         $("#ricerca-utente").val("");
         // resetto il contenuto della pagina
-        $(".container").html("");
+        $("#risultati-film, #risultati-serie").html("");
         // può partire la chiamata api attraverso la funzione
         chiamata_api_serie(input_utente);
         chiamata_api_film(input_utente);
@@ -84,11 +84,11 @@ $(document).ready(function() {
             if (film_corrente.hasOwnProperty('title')) {
                 var titolo = film_corrente.title;
                 var tipo = "film";
-                var contenitore = $("risultati-film")
+                var contenitore = $("#risultati-film");
             } else {
                 var titolo = film_corrente.name;
                 var tipo = "serie tv";
-                var contenitore = $("risultati-serie")
+                var contenitore = $("#risultati-serie");
             }
             if (film_corrente.hasOwnProperty('original_title')) {
                 var titolo_originale = film_corrente.original_title;
