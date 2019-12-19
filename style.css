@@ -50,6 +50,12 @@ main {
     flex-wrap: wrap;
     margin: 0 auto;
 }
+#sezione-film, #sezione-serie {
+    display:none;
+}
+#sezione-film.visibile, #sezione-serie.visibile {
+    display:block;
+}
 .card {
     padding: 20px;
     margin: 10px 20px;
@@ -58,13 +64,15 @@ main {
     flex-basis: 240px;
     line-height: 25px;
     position: relative;
+    display: flex;
+    flex-direction: column;
 
 }
 .card:hover {
     cursor: pointer;
 }
 .card:hover .copertina {
-    opacity: 0;
+    z-index:-1;
 }
 .card ul {
     list-style: none;
@@ -91,9 +99,9 @@ main {
     top:0;
     left: 0;
 }
-#overview {
+.overview {
     overflow-y: auto;
-    height: 145px
+    flex-grow: 2;
 }
 /* .copertina:hover {
     opacity: 0;

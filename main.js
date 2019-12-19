@@ -50,6 +50,7 @@ $(document).ready(function() {
                 var film = data.results;
                 // chiamo funzione per stampare i risultati
                 cicla_stampa(film);
+                $("#sezione-film").addClass("visibile");
             },
             "error": function(){
                 alert("errore");
@@ -69,6 +70,7 @@ $(document).ready(function() {
                 var serie = data.results;
                 // chiamo funzione per stampare i risultati
                 cicla_stampa(serie);
+                $("#sezione-serie").addClass("visibile");
             },
             "error": function(){
                 alert("errore");
@@ -82,9 +84,11 @@ $(document).ready(function() {
             if (film_corrente.hasOwnProperty('title')) {
                 var titolo = film_corrente.title;
                 var tipo = "film";
+                var contenitore = $("risultati-film")
             } else {
                 var titolo = film_corrente.name;
                 var tipo = "serie tv";
+                var contenitore = $("risultati-serie")
             }
             if (film_corrente.hasOwnProperty('original_title')) {
                 var titolo_originale = film_corrente.original_title;
@@ -95,8 +99,13 @@ $(document).ready(function() {
             var voto = film_corrente.vote_average;
             var voto_stelle = Math.round(voto /2);
             var url_copertina = film_corrente.poster_path;
-            var url_copertina_finale = url_base_immagini + size_copertine + url_copertina;
-            var descrizione = film_corrente.overview
+            if (url_copertina != null) {
+                var url_copertina_finale = url_base_immagini + size_copertine + url_copertina;
+                var descrizione = film_corrente.overview;
+            } else {
+                var url_copertina_finale = "https://www.rodmanbikes.store/img/p/it-default-big_default.jpg";
+            }
+
             var informazioni = {
                 titolo: titolo,
                 originale: titolo_originale,
@@ -109,7 +118,7 @@ $(document).ready(function() {
             // creo il template
             var html = template_function(informazioni);
             // lo appendo al contenitore
-            $(".container").append(html);
+            $(contenitore).append(html);
         };
     }
     // funzione per creare le stelline
