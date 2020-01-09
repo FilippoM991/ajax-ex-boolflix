@@ -39,17 +39,23 @@
 
         <script id="informazioni_film_template" type="text/x-handlebars-template">
             <div class="card">
-                <ul>
-                    <li><strong>Titolo:</strong> {{titolo}} </li>
-                    <li><strong>Titolo originale:</strong> {{originale}}</li>
-                    <li><strong>Tipologia:</strong> {{type}}</li>
-                    <li><strong>Lingua:</strong> {{{lingua}}} </li>
-                    <li><strong>Voto:</strong> {{{voto}}}</li>
-                </ul>
-                <div class="overview">
-                    <strong>Overview:</strong> {{{descrizione}}}
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img class="copertina" src="{{{immagine_copertina}}}" alt="">
+                    </div>
+                    <div class="flip-card-back">
+                        <ul>
+                            <li><strong>Titolo:</strong> {{titolo}} </li>
+                            <li><strong>Titolo originale:</strong> {{originale}}</li>
+                            <li><strong>Tipologia:</strong> {{type}}</li>
+                            <li><strong>Lingua:</strong> {{{lingua}}} </li>
+                            <li><strong>Voto:</strong> {{{voto}}}</li>
+                        </ul>
+                        <div class="overview">
+                            <strong>Overview:</strong> {{{descrizione}}}
+                        </div>
+                    </div>
                 </div>
-                <img class="copertina" src="{{{immagine_copertina}}}" alt="">
             </div>
 
         </script>
